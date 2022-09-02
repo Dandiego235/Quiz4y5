@@ -29,7 +29,7 @@ public:
         empty = true;
     }
 
-    void add(T *pData)
+    void add(T *pData) // Función que inserta un nodo al final.
     {
         Node<T> *newNode = new Node<T>(pData); // crea el nuevo nodo
 
@@ -90,7 +90,7 @@ public:
         {
             Node<T> *newNodo = new Node<T>(pData); // Nuevo nodo con el valor dado.
 
-            find(pPosition); // Se coloca el buscador en la posición deseada
+            find(pPosition); // Se coloca el buscador en la posición deseada, no nos interesa lo que retorna.
 
             newNodo->setNext(searchPosition);
             // Se pone el siguiente del nuevo nodo como el nodo en la posición
@@ -128,15 +128,16 @@ public:
                 // Se pone que el nodo siguiente del nodo anterior a la posición es el siguiente del nodo en la posición
                 // Nos "saltamos" al nodo original
 
-                if (searchPosition == last) // Si la posición es el último nodo.
+                if (searchPosition != last) // Si la posición no es el último nodo.
                 {
-                    last = searchPosition->getPrev(); // El nuevo last es el anterior del nodo en la posicíon.
+                    searchPosition->getNext()->setPrev(searchPosition->getPrev());
+                    // si no es el último, se pone que el anterior del nodo siguiente a la posición, es el anterior del nodo en la posición a borrar.
+                    // Desconectamos el nodo de sus vecinos.
                 }
                 else
                 {
-                    searchPosition->getNext()->setPrev(searchPosition->getPrev());
-                    // si no es el último, se pone que el anterior del nodo siguiente a la posición, es el anterior del nodo en la posición
-                    // Desconectamos el nodo de sus vecinos.
+                    last = searchPosition->getPrev(); // Si es el último, el nuevo last es el anterior del nodo en la posicíon.
+
                 }
             }
             else

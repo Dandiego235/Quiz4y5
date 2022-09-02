@@ -8,9 +8,12 @@ using namespace std;
 int main() {
     // 3. Despues del cambio esto debería comportarse exactamente igual que el caso de lista simple
     // 4. Crear esta implementación de lista doblemente enlazada corresponde al quiz #4 y #5
-    // 5. Entregar a mas tardar el viernes a las 7am, enviandolo al asistente kevinqj.2002@gmail.com 
-    // 6. subject: estructuras - quiz #4#5
+    // 5. Entregar a mas tardar el viernes a las 7am, enviandolo al asistente kevinqj.2002@gmail.com
+    // 6. subject: estructuras - quiz #4 y #5
     // 7. el quiz se hará en parejas asignado por el profesor
+
+    /* Realizado por Daniel Granados Retana, carné 2022104692, y Yeiner Ugalde Rivas, carné 2021062106.
+    */
 
     List<Event>* listA = new List<Event>();
     List<string>* listB = new List<string>();
